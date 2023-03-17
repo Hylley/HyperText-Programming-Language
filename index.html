@@ -1,22 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="HTPL.js"></script>
 
-		<script src="HTPL.js"></script>
-		<script src="interpreter.js"></script>
-		<script src="compiler.js"></script>
+<code style="visibility: hidden">
+	<variable name="age">5</variable>
 
-		<title>HTPL</title>
-	</head>
-
-	<body>
-		<code>
-			<variable name="5">5</variable>
-
-			<print></print>
-		</code>
-	</body>
-</html>
+	<if condition="age < 18">
+		<variable name="age">10</variable>
+		<!-- <print>You're underage!</print> -->
+	</if>
+</code>
