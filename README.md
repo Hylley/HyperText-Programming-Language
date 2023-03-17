@@ -1,4 +1,6 @@
-# HyperText-Programming-Language
- Who said HTML wasn't a programming language?
+# HyperText Programming Language
+ ![image](https://user-images.githubusercontent.com/66799902/225806984-e32881ec-436c-4380-8e14-fccd781619be.png)
+ Oh God what have I done.
 
-Heavily inspired by [ryangjchandler's](https://github.com/ryangjchandler) [Cursed HTML idea](https://github.com/ryangjchandler/cursed-html).
+---
+Strongly inspired by [ryangjchandler](https://github.com/ryangjchandler)'s [Cursed HTML](https://github.com/ryangjchandler/cursed-html) idea. Plz check him out!
