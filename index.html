@@ -1,10 +1,17 @@
 <script src="HTPL.js"></script>
 
 <code style="visibility: hidden">
-	<variable name="age">5</variable>
+	<variable name="age">19</variable>
 
 	<if condition="age < 18">
-		<variable name="age">10</variable>
-		<!-- <print>You're underage!</print> -->
+		<print>You're underage!</print>
+
+		<else-if condition="age = 18">
+			<print>You're eighteen!</print>
+		</else-if>
+
+		<else>
+			<print>Hmmm!</print>
+		</else>
 	</if>
 </code>

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ---------------------------------------------------------------------------------
 
-directCompileInstructions = ['variable', 'if']
+directCompileInstructions = ['variable', 'if', 'print']
 indirectCompileInstructions = ['function']
 variables = {}
 functions = {
@@ -39,6 +39,11 @@ function compile(instruction, element)
 		
 		case 'if':
 			implementIf(element);
+
+			break;
+
+		case 'print':
+			implementPrint(element);
 
 			break;
 	}
@@ -99,7 +104,7 @@ function implementVariable(element)
 		}
 	}
 
-	console.log(variables);
+	// console.log(variables);
 
 	if('name' in element.attributes) variables[element.attributes.name.nodeValue] = value;
 	
@@ -108,11 +113,9 @@ function implementVariable(element)
 
 function implementIf(element)
 {
-	console.log(element);
 	if(!element.hasAttributes() || !'condition' in element.attributes) throw new Error(`Empty condition at ${element.tagName}`);
 
-	let condition = element.attributes.condition.nodeValue;
-	// const block = 
+	let condition = element.attributes.condition.nodeValue.replace('=', '==');
 
 	condition.split(' ').forEach((word) => {
 		if(word in variables)
@@ -121,5 +124,36 @@ function implementIf(element)
 		}
 	});
 
-	
+	if(eval(condition))
+	{
+		execute(element);
+	}
+	else
+	{
+		for(const index in element.children)
+		{
+			const child = element.children[index];
+			if(!child.tagName) continue;
+
+			if(child.tagName.toLowerCase() == 'else-if')
+			{
+				implementIf(child);
+
+				break;
+			}
+			else if(child.tagName.toLowerCase() == 'else') 
+			{
+				execute(child);
+
+				break;
+			}
+		}
+	}
+}
+
+function implementPrint(element)
+{
+	if(!element.childNodes) throw new Error(`Cannot print empty at ${element.tagName}`);
+
+	console.log(element.childNodes[0].nodeValue);
 }
