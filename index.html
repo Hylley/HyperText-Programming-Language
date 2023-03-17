@@ -1,11 +1,18 @@
 <!-- Oh God, what have I done? -->
 <script src="HTPL.js"></script>
 
-<code style="visibility: hidden">
-	<function name="CheckAge">
-		<print>Sou lindo, e tenho <variable name="age"></variable> anos.</print>
+<main style="visibility: hidden">
+	<function name="foo">
+		<variable name="age">17</variable>
+
+		<if condition="age < 18">
+			<print>You're not old enough to access the system.</print>
+
+			<else>
+				<print>Welcome to the system!</print>
+			</else>
+		</if>
 	</function>
 
-	
-	<function name="CheckAge"></function>
-</code>
+	<function name="foo"></function>
+</main>

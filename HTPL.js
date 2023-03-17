@@ -4,7 +4,7 @@ globalVariables = {}
 globalFunctions = {}
 
 document.addEventListener('DOMContentLoaded', () => {
-	const blocks = document.querySelectorAll('code');
+	const blocks = document.querySelectorAll('main');
 	blocks.forEach(block => execute(block))
 })
 
@@ -95,6 +95,10 @@ function implementVariable(element)
 			case 'float':
 				value = parseFloat(element.childNodes[0].nodeValue);
 				break;
+			
+			case 'bool':
+				value = element.childNodes[0].nodeValue.toLowerCase() == 'true';
+			break;
 			
 			default:
 				throw new Error('Invalid variable type in ' + `${element.tagName}`);
